@@ -1,0 +1,229 @@
+:root {
+  --kite-bg: #fafaf7;
+  --kite-ink: #0f172a;
+  --kite-gray: #334155;
+  --kite-gold: #b3894a;
+  --kite-panel-bg: rgba(255, 255, 255, 0.88);
+  --kite-panel-border: rgba(15, 23, 42, 0.1);
+  --kite-success: #2dd4bf;
+  --kite-danger: #f97316;
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--kite-ink);
+  background: var(--kite-bg);
+}
+
+[data-theme='ink'] {
+  --kite-bg: #111827;
+  --kite-ink: #f8fafc;
+  --kite-gray: #cbd5f5;
+  --kite-panel-bg: rgba(17, 24, 39, 0.9);
+  --kite-panel-border: rgba(148, 163, 184, 0.2);
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: var(--kite-bg);
+  color: var(--kite-ink);
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  min-height: 320px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.kite-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background: var(--kite-bg);
+  color: var(--kite-ink);
+  overflow: hidden;
+}
+
+.kite-canvas {
+  flex: 1 1 60%;
+  position: relative;
+}
+
+.kite-controls {
+  flex: 1 1 40%;
+  max-width: 420px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.kite-panel {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--kite-panel-bg);
+  border-left: 1px solid var(--kite-panel-border);
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+}
+
+.kite-panel h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.kite-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kite-slider label {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.kite-slider input[type='range'] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--kite-gold), var(--kite-ink));
+  outline: none;
+}
+
+.kite-slider input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--kite-bg);
+  border: 2px solid var(--kite-gold);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.kite-slider input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.kite-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.kite-toggle input[type='checkbox'] {
+  width: 42px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.1);
+  border: 1px solid var(--kite-panel-border);
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.kite-toggle input[type='checkbox']::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--kite-bg);
+  border: 1px solid var(--kite-gold);
+  top: 1px;
+  left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.kite-toggle input[type='checkbox']:checked {
+  background: var(--kite-gold);
+}
+
+.kite-toggle input[type='checkbox']:checked::after {
+  transform: translateX(18px);
+}
+
+.kite-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.kite-button {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--kite-gold);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kite-button:active {
+  transform: scale(0.98);
+}
+
+.kite-toast {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.kite-toast.visible {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .kite-container {
+    flex-direction: column;
+  }
+
+  .kite-canvas {
+    flex: 1 1 auto;
+    min-height: 300px;
+  }
+
+  .kite-controls {
+    max-width: none;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .kite-panel {
+    border-left: none;
+    border-top: 1px solid var(--kite-panel-border);
+  }
+
+  .kite-actions {
+    flex-direction: column;
+  }
+}
