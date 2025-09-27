@@ -17,7 +17,7 @@ export interface InitOptions {
   container?: HTMLElement;
   theme?: 'light' | 'ink' | 'auto';
   locale?: 'zh' | 'en';
-  mode?: 'learn' | 'quiz';
+  mode?: 'learn' | 'quiz' | 'demo';
   defaultParams?: Partial<KiteParams>;
   assetsBaseUrl?: string;
   enableParticles?: boolean;

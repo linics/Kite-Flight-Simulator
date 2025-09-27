@@ -227,3 +227,113 @@ html {
     flex-direction: column;
   }
 }
+
+.kite-panel--demo {
+  box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.18);
+  border-color: rgba(45, 212, 191, 0.35);
+}
+
+.kite-button--ghost {
+  background: transparent;
+  color: var(--kite-gold);
+  border: 1px solid var(--kite-gold);
+}
+
+.kite-button--ghost:hover {
+  background: rgba(179, 137, 74, 0.14);
+}
+
+.kite-button--ghost.kite-button--active {
+  background: var(--kite-gold);
+  color: #fff;
+}
+
+.kite-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.kite-slider input[type='range']:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.kite-toggle input[type='checkbox']:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.kite-guidance {
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+[data-theme='ink'] .kite-guidance {
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.kite-guidance__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.kite-guidance__message {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border-left: 3px solid var(--kite-panel-border);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--kite-ink);
+  line-height: 1.55;
+}
+
+[data-theme='ink'] .kite-guidance__message {
+  background: rgba(17, 24, 39, 0.6);
+}
+
+.kite-guidance__message--default {
+  border-left-color: var(--kite-panel-border);
+  color: var(--kite-gray);
+}
+
+.kite-guidance__message--info {
+  border-left-color: var(--kite-gold);
+}
+
+.kite-guidance__message--warning {
+  border-left-color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  color: #b45309;
+}
+
+[data-theme='ink'] .kite-guidance__message--warning {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fef08a;
+}
+
+.kite-guidance__message--success {
+  border-left-color: #2dd4bf;
+  background: rgba(45, 212, 191, 0.14);
+  color: #0f766e;
+}
+
+[data-theme='ink'] .kite-guidance__message--success {
+  background: rgba(45, 212, 191, 0.2);
+  color: #bbf7d0;
+}
+
+.kite-guidance__steps {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--kite-gray);
+  font-size: 13px;
+  line-height: 1.4;
+}
